@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".lesson1.Lesson1Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="在同一个线程中创建订阅关系"/>
+
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="btnStart"
+            android:text="订阅"/>
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:id="@+id/tv_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="Emitter是发射器的意思,它可以发出三种类型的事件，
+            通过调用emitter的onNext(T value)、onComplete()和onError(Throwable error)
+            就可以分别发出next事件、complete事件和error事件
+            \n\n
+            但是，请注意，并不意味着你可以随意乱七八糟发射事件，需要满足一定的规则：
+            \n\n
+            上游可以发送无限个onNext, 下游也可以接收无限个onNext.
+            \n
+            当上游发送了一个onComplete后, 上游onComplete之后的事件将会继续发送, 而下游收到onComplete事件之后将不再继续接收事件.
+            \n
+            当上游发送了一个onError后, 上游onError之后的事件将继续发送, 而下游收到onError事件之后将不再继续接收事件.
+            \n
+            上游可以不发送onComplete或onError.
+            \n
+            最为关键的是onComplete和onError必须唯一并且互斥, 即不能发多个onComplete, 也不能发多个onError, 也不能先发一个onComplete, 然后再发一个onError, 反之亦然"
+            android:textColor="#ea431c"/>
+
+    </LinearLayout>
+
+</ScrollView>

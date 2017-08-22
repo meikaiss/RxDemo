@@ -11,13 +11,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RxJavaActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".lesson1.Lesson1Activity"
+            android:label="Lesson1"/>
+        <activity
+            android:name=".lesson2.Lesson2Activity"
+            android:label="Lesson2"/>
+        <activity
+            android:name=".lesson3.Lesson3Activity"
+            android:label="Lesson3"/>
+        <activity
+            android:name=".lesson4.Lesson4Activity"
+            android:label="Lesson4"/>
+        <activity
+            android:name=".lesson5.ZipActivity"
+            android:label="Lesson5"/>
+
+
     </application>
+
 
 </manifest>

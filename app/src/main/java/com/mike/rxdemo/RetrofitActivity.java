@@ -27,7 +27,7 @@ public class RetrofitActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_retrofit);
+        setContentView(R.layout.activity_lesson4);
 
         tvResult = (TextView) findViewById(R.id.tv_result);
     }

@@ -1,6 +1,7 @@
-package com.mike.rxdemo;
+package com.mike.rxdemo.lesson4;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import com.mike.rxdemo.BuildConfig;
 
 import java.util.concurrent.TimeUnit;
 

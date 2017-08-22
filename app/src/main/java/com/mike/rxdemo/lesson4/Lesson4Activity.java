@@ -1,4 +1,4 @@
-package com.mike.rxdemo;
+package com.mike.rxdemo.lesson4;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -9,6 +9,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+
+import com.mike.rxdemo.MyResponse;
+import com.mike.rxdemo.R;
+import com.mike.rxdemo.Weather;
+import com.mike.rxdemo.WeatherApi2;
 
 import java.util.List;
 
@@ -25,7 +30,7 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * Created by meikai on 17/8/21.
  */
-public class RxJavaActivity extends AppCompatActivity {
+public class Lesson4Activity extends AppCompatActivity {
 
     private TextView tvResult;
     private TextView tvResultAppCount;
@@ -46,7 +51,7 @@ public class RxJavaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_retrofit);
+        setContentView(R.layout.activity_lesson4);
 
         tvResult = (TextView) findViewById(R.id.tv_result);
         tvResultAppCount = (TextView) findViewById(R.id.tv_result_app_count);
@@ -64,10 +69,10 @@ public class RxJavaActivity extends AppCompatActivity {
     public void getAppCount(View view) {
         tvResultAppCount.setText("查询中");
 
-        Observable.create(new ObservableOnSubscribe<PackageInfo>() {
+        Observable<PackageInfo> observable = Observable.create(new ObservableOnSubscribe<PackageInfo>() {
             @Override
             public void subscribe(ObservableEmitter<PackageInfo> e) throws Exception {
-                PackageManager pm = RxJavaActivity.this.getPackageManager();
+                PackageManager pm = Lesson4Activity.this.getPackageManager();
                 // 查询所有已经安装的应用程序
                 List<PackageInfo> appInfos = pm.getInstalledPackages(0);
                 // GET_UNINSTALLED_PACKAGES代表已删除，但还有安装目录的
@@ -79,42 +84,45 @@ public class RxJavaActivity extends AppCompatActivity {
 
                 e.onComplete();
             }
-        })
-                .subscribeOn(Schedulers.io())
+        });
+
+        Observer<String> observer = new Observer<String>() {
+
+            int count;
+
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(String appName) {
+                count++;
+
+                tvResultAppCount.setText("共安装了" + count + "个应用,名称＝" + appName);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        };
+
+        observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(new Function<PackageInfo, String>() {
                     @Override
                     public String apply(PackageInfo packageInfo) throws Exception {
-                        PackageManager pManager = RxJavaActivity.this.getPackageManager();
+                        PackageManager pManager = Lesson4Activity.this.getPackageManager();
                         return pManager.getApplicationLabel(packageInfo.applicationInfo).toString();
                     }
                 })
-                .subscribe(new Observer<String>() {
-
-                    int count;
-
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(String appName) {
-                        count++;
-
-                        tvResultAppCount.setText("共安装了" + count + "个应用,名称＝" + appName);
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
+                .subscribe(observer);
     }
 
     public void getWeather(View view) {
@@ -123,7 +131,7 @@ public class RxJavaActivity extends AppCompatActivity {
 
         final Gson gson = new GsonBuilder().create();
 
-        weatherApi2.getWeather2()
+        weatherApi2.getWeather2() //  这一行返回的就是一个Observable
                 .subscribeOn(Schedulers.io())  //在IO线程进行网络请求
                 .observeOn(AndroidSchedulers.mainThread()) //回到主线程去处理请求结果
                 .subscribe(new Observer<MyResponse<Weather>>() {
