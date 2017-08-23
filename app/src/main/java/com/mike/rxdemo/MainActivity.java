@@ -14,6 +14,8 @@ import com.mike.rxdemo.lesson2.Lesson2Activity;
 import com.mike.rxdemo.lesson3.Lesson3Activity;
 import com.mike.rxdemo.lesson4.Lesson4Activity;
 import com.mike.rxdemo.lesson5.ZipActivity;
+import com.mike.rxdemo.lesson6.Lesson6Activity;
+import com.mike.rxdemo.lesson7.Lesson7Activity;
 
 
 /**
@@ -28,7 +30,9 @@ public class MainActivity extends AppCompatActivity {
             Lesson2Activity.class,
             Lesson3Activity.class,
             Lesson4Activity.class,
-            ZipActivity.class
+            ZipActivity.class,
+            Lesson6Activity.class,
+            Lesson7Activity.class
     };
 
     @Override

@@ -34,6 +34,12 @@
         <activity
             android:name=".lesson5.ZipActivity"
             android:label="Lesson5"/>
+        <activity
+            android:name=".lesson6.Lesson6Activity"
+            android:label="Lesson6"/>
+        <activity
+            android:name=".lesson7.Lesson7Activity"
+            android:label="Lesson7"/>
 
 
     </application>
