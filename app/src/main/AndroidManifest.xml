@@ -3,6 +3,7 @@
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -40,6 +41,15 @@
         <activity
             android:name=".lesson7.Lesson7Activity"
             android:label="Lesson7"/>
+        <activity
+            android:name=".lesson8.Lesson8Activity"
+            android:label="Lesson8"/>
+        <activity
+            android:name=".lesson9.Lesson9Activity"
+            android:label="Lesson9"/>
+        <activity
+            android:name=".lesson10.Lesson10Activity"
+            android:label="Lesson10"/>
 
 
     </application>

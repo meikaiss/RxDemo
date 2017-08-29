@@ -3,7 +3,7 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".lesson7.Lesson7Activity">
+            tools:context=".lesson8.Lesson8Activity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,14 +14,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="sample操作符, 每隔指定的时间就从上游中取出一个事件发送给下游"/>
+            android:text="FLowable相比Observable, 在性能方面有些不足, 毕竟FLowable内部为了实现响应式拉取做了更多的操作, 性能有所丢失也是在所难免, 因此单单只是说因为FLowable是新兴产物就盲目的使用也是不对的, 也要具体分场景"/>
 
         <Button
             android:id="@+id/btn_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="btnStart"
-            android:text="订阅"/>
+            android:text="开始"/>
+
+        <Button
+            android:id="@+id/btn_get_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="btnGetOne"
+            android:text="取一个事件"/>
 
         <TextView
             android:id="@+id/tv_result"
@@ -33,7 +40,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:text="sample操作符, 每隔指定的时间就从上游中取出一个事件发送给下游"
+            android:text="
+BackpressureStrategy.BUFFER, 这就是我们的新水缸啦, 这个水缸就比原来的水缸牛逼多了,如果说原来的水缸是95式步枪, 那这个新的水缸就好比黄金AK , 它没有大小限制, 因此可以存放许许多多的事件.
+\n\n
+BackpressureStrategy.DROP和BackpressureStrategy.LATEST这两种策略.
+从名字上就能猜到它俩是干啥的, Drop就是直接把存不下的事件丢弃,Latest就是只保留最新的事件"
             android:textColor="#ea431c"/>
 
     </LinearLayout>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".lesson7.Lesson7Activity">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".lesson8.Lesson8Activity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,14 +15,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="sample操作符, 每隔指定的时间就从上游中取出一个事件发送给下游"/>
+            android:text="interval操作符发送Long型的事件, 从0开始, 每隔指定的时间就把数字加1并发送出来"/>
 
         <Button
             android:id="@+id/btn_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="btnStart"
-            android:text="订阅"/>
+            android:text="开始"/>
+
+        <Button
+            android:id="@+id/btn_get_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="btnGetOne"
+            android:text="取一个事件"/>
 
         <TextView
             android:id="@+id/tv_result"
@@ -33,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:text="sample操作符, 每隔指定的时间就从上游中取出一个事件发送给下游"
+            android:text=""
             android:textColor="#ea431c"/>
 
     </LinearLayout>

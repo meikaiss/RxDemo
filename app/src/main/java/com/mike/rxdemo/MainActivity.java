@@ -10,12 +10,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.mike.rxdemo.lesson1.Lesson1Activity;
+import com.mike.rxdemo.lesson10.Lesson10Activity;
 import com.mike.rxdemo.lesson2.Lesson2Activity;
 import com.mike.rxdemo.lesson3.Lesson3Activity;
 import com.mike.rxdemo.lesson4.Lesson4Activity;
 import com.mike.rxdemo.lesson5.ZipActivity;
 import com.mike.rxdemo.lesson6.Lesson6Activity;
 import com.mike.rxdemo.lesson7.Lesson7Activity;
+import com.mike.rxdemo.lesson8.Lesson8Activity;
+import com.mike.rxdemo.lesson9.Lesson9Activity;
 
 
 /**
@@ -32,7 +35,10 @@ public class MainActivity extends AppCompatActivity {
             Lesson4Activity.class,
             ZipActivity.class,
             Lesson6Activity.class,
-            Lesson7Activity.class
+            Lesson7Activity.class,
+            Lesson8Activity.class,
+            Lesson9Activity.class,
+            Lesson10Activity.class
     };
 
     @Override
