@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".lesson8.Lesson8Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="debounce原理类似于我们在收到请求之后，发送一个延时消息给下游，如果在这段延时时间内没有收到新的请求，那么下游就会收到该消息；而如果在这段延时时间内收到来新的请求，那么就会取消之前的消息，并重新发送一个新的延时消息，以此类推。
+而如果在这段时间内，上游发送了onComplete消息，那么即使没有到达需要等待的时间，下游也会立刻收到该消息。
+\n---------\n
+switchMap的原理是将上游的事件转换成一个或多个新的Observable，但是有一点很重要，就是如果在该节点收到一个新的事件之后，那么如果之前收到的时间所产生的Observable还没有发送事件给下游，那么下游就再也不会收到它发送的事件了。
+如上图所示，该节点先后收到了红、绿、蓝三个事件，并将它们映射成为红一、红二、绿一、绿二、蓝一、蓝二，但是当蓝一发送完事件时，绿二依旧没有发送事件，而最初绿色事件在蓝色事件之前，那么绿二就不会发送给下游。
+\n---------\n
+这样正好解决了搜索请求返回结果的时序不确定性的问题"/>
+
+        <EditText
+            android:id="@+id/edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text=""
+            android:textColor="#ea431c"/>
+
+    </LinearLayout>
+
+</ScrollView>

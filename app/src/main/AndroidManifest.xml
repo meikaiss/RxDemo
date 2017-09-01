@@ -50,6 +50,9 @@
         <activity
             android:name=".lesson10.Lesson10Activity"
             android:label="Lesson10"/>
+        <activity
+            android:name=".lesson11.Lesson11Activity"
+            android:label="Lesson11"/>
 
 
     </application>

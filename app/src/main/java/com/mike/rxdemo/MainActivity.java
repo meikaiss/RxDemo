@@ -11,6 +11,7 @@ import android.widget.ListView;
 
 import com.mike.rxdemo.lesson1.Lesson1Activity;
 import com.mike.rxdemo.lesson10.Lesson10Activity;
+import com.mike.rxdemo.lesson11.Lesson11Activity;
 import com.mike.rxdemo.lesson2.Lesson2Activity;
 import com.mike.rxdemo.lesson3.Lesson3Activity;
 import com.mike.rxdemo.lesson4.Lesson4Activity;
@@ -38,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
             Lesson7Activity.class,
             Lesson8Activity.class,
             Lesson9Activity.class,
-            Lesson10Activity.class
+            Lesson10Activity.class,
+            Lesson11Activity.class
     };
 
     @Override
